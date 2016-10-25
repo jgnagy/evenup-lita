@@ -9,17 +9,19 @@ class lita::params {
   $manage_bundler = false
   $bundler_package = 'bundler'
   $bundler_provider = 'gem'
-  $bundler_binpath = '/bin'
+  
   $extra_packages = []
   case $::osfamily {
     'Debian': {
       $service_env_file = '/etc/default/lita'
       $service_path     = '/lib/systemd/system'
+      $bundler_binpath  = '/usr/local/bin'
     }
 
     'RedHat': {
       $service_env_file = '/etc/sysconfig/lita'
       $service_path     = '/usr/lib/systemd/system'
+      $bundler_binpath  = '/bin'
     }
 
     default: {
