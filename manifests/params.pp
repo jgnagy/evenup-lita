@@ -9,7 +9,7 @@ class lita::params {
   $manage_bundler = false
   $bundler_package = 'bundler'
   $bundler_provider = 'gem'
-  
+
   $extra_packages = []
   case $::osfamily {
     'Debian': {
