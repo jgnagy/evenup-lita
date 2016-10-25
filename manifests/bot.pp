@@ -57,11 +57,11 @@ define lita::bot (
     notify      => Service["lita_${_name}"],
   }
 
-  file { "/usr/lib/systemd/system/lita@${_name}.service.d":
+  file { "${::lita::service_path}/lita@${_name}.service.d":
     ensure  => 'directory',
   }
 
-  file { "/usr/lib/systemd/system/lita@${_name}.service.d/workingdir.conf":
+  file { "${::lita::service_path}/lita@${_name}.service.d/workingdir.conf":
     ensure  => file,
     owner   => root,
     group   => root,
@@ -69,7 +69,7 @@ define lita::bot (
     content => "[Service]\nWorkingDirectory=${bot_dir}\n",
   }
 
-  file { "/etc/sysconfig/lita-${_name}":
+  file { "${::lita::service_env_file}-${_name}":
     ensure  => file,
     content => "HOME=${bot_dir}\n",
   }

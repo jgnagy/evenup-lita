@@ -3,7 +3,7 @@ Description=Lita (%i) bot
 After=network.target
 
 [Service]
-EnvironmentFile=-/etc/sysconfig/lita-%i
+EnvironmentFile=-<%= @service_env_file %>-%i
 Type=simple
 ExecStart=<%= @bundler_binpath %>/bundle exec lita
 ExecReload=<%= @bundler_binpath %>/bundle exec lita

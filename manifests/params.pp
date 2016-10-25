@@ -11,6 +11,21 @@ class lita::params {
   $bundler_provider = 'gem'
   $bundler_binpath = '/bin'
   $extra_packages = []
+  case $::osfamily {
+    'Debian': {
+      $service_env_file = '/etc/default/lita'
+      $service_path     = '/lib/systemd/system'
+    }
+
+    'RedHat': {
+      $service_env_file = '/etc/sysconfig/lita'
+      $service_path     = '/usr/lib/systemd/system'
+    }
+
+    default: {
+      fail "Operating system ${::operatingsystem} is not supported yet."
+    }
+  }
 
   # bot
   $version = 'latest'

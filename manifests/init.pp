@@ -13,6 +13,8 @@ class lita (
   $bundler_provider = $::lita::params::bundler_provider,
   $bundler_binpath  = $::lita::params::bundler_binpath,
   $extra_packages   = $::lita::params::extra_packages,
+  $service_env_file = $::lita::params::service_env_file,
+  $service_path     = $::lita::params::service_path,
 
   # bot defaults
   $version          = $::lita::params::version,
@@ -38,7 +40,7 @@ class lita (
     ensure  => 'present',
     system  => true,
     gid     => 'lita',
-    home    => '/opt/lita',
+    home    => $base_path,
     shell   => '/bin/bash',
     require => Group['lita'],
   }
@@ -65,7 +67,7 @@ class lita (
     group  => 'lita',
   }
 
-  file { '/usr/lib/systemd/system/lita@.service':
+  file { "${service_path}/lita@.service":
     owner   => root,
     group   => root,
     mode    => '0555',
