@@ -190,6 +190,12 @@ Integer.  Default redis port to use for bots
 
 Default: 6379
 
+#####`redis_password`
+
+String.  Authentication used to connect to redis
+
+Default: `false`
+
 
 #### Define: lita::bot
 
@@ -288,6 +294,12 @@ Default: '127.0.0.1'
 Integer.  Port to connect to redis on
 
 Default: 6379
+
+#####`redis_password`
+
+String.  Authentication used to connect to redis
+
+Default: `false`
 
 
 ### Private classes

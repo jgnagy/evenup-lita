@@ -14,9 +14,12 @@ Lita.configure do |config|
   config.http.port = <%= @http_port %>
   config.redis[:host] = "<%= @redis_host %>"
   config.redis[:port] = <%= @redis_port %>
+  <% if @redis_password %>
+  config.redis[:password] = '<%= @redis_password %>'
+  <% end %>
   <% @plugin_config.each do |plugin,config| -%>
   <% config.each do |k,v| -%>
   config.handlers.<%= plugin %>.<%= scope.function_stringify_symbol([k]) %> = <%= scope.function_typecast([v]) %>
   <% end -%>
-  <% end -%>
+  <% end %>
 end

@@ -19,6 +19,7 @@ define lita::bot (
   $http_port        = $::lita::http_port,
   $redis_host       = $::lita::redis_host,
   $redis_port       = $::lita::redis_port,
+  $redis_password   = $::lita::redis_password,
 ) {
 
   if !defined(Class['lita']) {

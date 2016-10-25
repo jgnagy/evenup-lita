@@ -32,6 +32,7 @@ class lita (
   $http_port        = $::lita::params::http_port,
   $redis_host       = $::lita::params::redis_host,
   $redis_port       = $::lita::params::redis_port,
+  $redis_password   = $::lita::params::redis_password,
 ) inherits lita::params {
 
   include ::systemd
