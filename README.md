@@ -296,7 +296,7 @@ Default: 6379
 
 ## Limitations
 
-* Only tested on RHEL/CentOS 7
+* Only tested on RHEL/CentOS 7/Ubuntu 16.04
 
 ## Development
 
