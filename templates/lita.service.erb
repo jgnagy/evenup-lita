@@ -3,6 +3,7 @@ Description=Lita (%i) bot
 After=network.target
 
 [Service]
+User=lita
 EnvironmentFile=-<%= @service_env_file %>-%i
 Type=simple
 ExecStart=<%= @bundler_binpath %>/bundle exec lita
